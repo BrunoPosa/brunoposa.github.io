@@ -53,15 +53,18 @@
   /* Hero Section */
   .hero {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 50px 0;
     background: linear-gradient(to right, #3498db, #2ecc71);
     color: #fff;
-  }
-  
+    text-align: center;
   .hero-text {
-    max-width: 50%;
+    max-width: 80%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
     text-align: left;
   }
   
@@ -74,6 +77,7 @@
   .hero-text p {
     font-size: 1.3em;
     margin-bottom: 30px;
+    margin: auto;
   }
   
   .cta-button {
@@ -114,6 +118,7 @@
     font-size: 1.2em;
     text-align: center;
     margin-bottom: 40px;
+    margin: auto;
   }
   
   .service-list {
@@ -152,6 +157,7 @@
   .case-study-item p {
     font-size: 1.2em;
     margin-bottom: 15px;
+    margin: auto;
   }
   
   /* Contact Form Styling */
