@@ -35,6 +35,8 @@ body {
 header {
   background-color: var(--deep-blue);
   color: #fff;
+  position: relative;
+  z-index: 1000;
 }
 
 .header-container {
@@ -62,7 +64,8 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 20px;
-  transition: transform 0.3s ease;
+  transition: max-height 0.3s ease;
+  /* For mobile: we'll override display and positioning */
 }
 
 nav ul li a {
@@ -170,6 +173,10 @@ footer {
     justify-content: space-between;
   }
   
+  nav {
+    width: 100%;
+  }
+  
   nav ul {
     position: absolute;
     top: 100%;
@@ -179,13 +186,12 @@ footer {
     background-color: var(--deep-blue);
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.3s ease-out;
+    z-index: 999; /* Ensure it appears above other content */
   }
   
-  /* When active, expand menu smoothly */
+  /* When active, expand menu to show all items. Increase max-height sufficiently */
   nav ul.active {
-    max-height: 300px; /* Adjust as needed for the number of items */
-    transition: max-height 0.3s ease-in;
+    max-height: 500px;
   }
   
   nav ul li {
