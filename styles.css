@@ -1,252 +1,212 @@
-/* Reset Styles */
+/* CSS Variables for Branding */
+:root {
+  --deep-blue: #003366;
+  --vibrant-teal: #00A6A6;
+  --light-gray: #F2F2F2;
+  --dark-gray: #333333;
+  --energetic-orange: #FF6600;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+}
+
+/* Reset & Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Global Typography */
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #F2F2F2;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  /* Container */
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  /* Header */
-  header {
-    background-color: #003366; /* Deep Blue */
-    color: #fff;
-    padding: 15px 20px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+header {
+  background-color: var(--deep-blue);
+  color: #fff;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+/* Logo */
+.logo a {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navigation */
+nav {
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--vibrant-teal);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-family: var(--font-primary);
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  background-color: var(--energetic-orange);
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background-color: #e05500;
+}
+
+/* Features Section */
+.features {
+  background-color: #fff;
+  padding: 50px 20px;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.feature {
+  flex: 1 1 300px;
+  max-width: 300px;
+  text-align: center;
+  padding: 15px;
+}
+
+.feature h2 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--deep-blue);
+}
+
+.feature p {
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-gray);
+  color: #fff;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 14px;
+}
+
+/* Responsive Navigation */
+/* Mobile styles */
+@media (max-width: 768px) {
   .header-container {
-    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Logo */
-  .logo a {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  /* Navigation */
-  nav {
-    position: relative;
   }
   
   nav ul {
-    display: flex;
-    list-style: none;
-    justify-content: flex-end; /* Ensure the menu is aligned to the right */
-    margin-left: auto; /* Align the menu to the right */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--deep-blue);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  /* When active, expand menu smoothly */
+  nav ul.active {
+    max-height: 300px; /* Adjust as needed for the number of items */
+    transition: max-height 0.3s ease-in;
   }
   
   nav ul li {
-    margin: 0 15px;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
   
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 12px;
-    transition: background 0.3s ease;
+  .hamburger {
+    display: block;
   }
-  
-  nav ul li a:hover,
-  nav ul li a:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+}
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+  nav ul {
+    position: static;
+    max-height: none;
+    flex-direction: row;
   }
-  
-  /* Hamburger Icon */
-  nav .icon {
+  .hamburger {
     display: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 20px; /* Align it to the top-right corner */
   }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    /* When the screen is smaller than 768px, hide the menu and show the hamburger */
-    nav ul {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #003366;
-      position: absolute;
-      top: 100%;
-      left: 0;
-    }
-  
-    nav ul.show {
-      display: flex;
-    }
-  
-    nav ul li {
-      margin: 10px 0;
-      text-align: center;
-    }
-  
-    nav .icon {
-      display: block;
-      position: absolute;
-      top: 15px;
-      right: 20px; /* Position the icon in the top-right */
-    }
-  }
-  
-  /* Display nav menu on larger screens */
-  @media (min-width: 769px) {
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-  
-    nav ul li {
-      margin: 0 15px;
-    }
-  
-    nav .icon {
-      display: none; /* Hide hamburger icon on larger screens */
-    }
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-color: #00A6A6; /* Vibrant Teal */
-    color: #fff;
-    text-align: center;
-    padding: 80px 20px;
-  }
-  
-  .hero h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 42px;
-    margin-bottom: 20px;
-  }
-  
-  .hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .cta-btn {
-    display: inline-block;
-    background-color: #FF6600; /* Energetic Orange */
-    color: #fff;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-btn:hover,
-  .cta-btn:focus {
-    background-color: #e05500;
-  }
-  
-  /* Features Section */
-  .features {
-    background-color: #fff;
-    padding: 50px 20px;
-  }
-  
-  /* New rule: Make the inner container a flex container */
-  .features > .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-  }
-  
-  .feature {
-    flex: 1 1 300px;
-    max-width: 300px;
-    text-align: center;
-  }
-  
-  .feature h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #003366;
-  }
-  
-  .feature p {
-    font-size: 16px;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 15px 20px;
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
-    .header-container {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  
-    nav ul {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  
-    nav ul li {
-      margin: 5px;
-    }
-  
-    .hero {
-      padding: 60px 20px;
-    }
-  
-    .hero h1 {
-      font-size: 36px;
-    }
-  
-    .hero p {
-      font-size: 18px;
-    }
-  
-    /* Ensure feature boxes stack only on very narrow screens */
-    .features > .container {
-      flex-direction: row;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .header-container {
-      flex-direction: column;
-    }
-  
-    nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  
+}

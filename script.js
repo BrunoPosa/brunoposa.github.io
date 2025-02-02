@@ -1,12 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Upsite Loaded Successfully!");
-});
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Upsite Loaded Successfully!");
 
-// Select the hamburger icon and the menu (ul element)
-const hamburgerIcon = document.querySelector('.icon');
-const navMenu = document.querySelector('nav ul');
+  // Get hamburger button and navigation list
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-// Toggle the 'show' class to show/hide the menu when the icon is clicked
-hamburgerIcon.addEventListener('click', () => {
-  navMenu.classList.toggle('show');
+  // Toggle the navigation menu with a smooth transition
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 });
